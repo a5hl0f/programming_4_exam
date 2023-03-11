@@ -3,8 +3,9 @@ package org.animalcare.controller;
 import org.animalcare.service.OwnerService;
 import org.springframework.stereotype.Controller;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+@RequestMapping("Owner")
 @Controller
 public class OwnerController {
 
@@ -13,9 +14,10 @@ public class OwnerController {
     public OwnerController(OwnerService ownerService) {
         this.ownerService = ownerService;
     }
-    @RequestMapping({"/","/Welcome","/Welcome.html"})
-      public String Welcome(){
-            return "Welcome";
+    @RequestMapping({"","/","/Owner","/Owner.html"})
+      public String OwnerList(Model model){
+        model.addAttribute("owners",ownerService.findAll());
+            return "OwnerList";
       }
 
 }
