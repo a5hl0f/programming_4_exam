@@ -1,10 +1,11 @@
 package org.animalcare.service;
 import org.animalcare.entity.AnimalType;
 import org.animalcare.reposistory.AnimalTypeRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Service
 public class AnimalTypeService {
     private final AnimalTypeRepository animalTypeRepository;
 
