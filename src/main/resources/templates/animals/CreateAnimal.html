@@ -8,18 +8,26 @@
 <div style="width: 50%;margin: auto; ">
     <form th:action="@{/Animal/register}" method="post" th:object="${animals}">
         <div class="form-group">
-           <label>Type_id</label>
-            <select th:field="*{type_id}">
-                <option th:each="t :${anitype}" th:value="${t}" th:text="${t}"></option>
+            <label for="animal">Animal</label>
+
+            <select th:field="*{animalType}" class="form-control " required>
+                <th:block th:each="ani:${anitype}">
+                    <option  th:text="${ani.getName() }" th:value="${ani.getId()}"></option>
+                </th:block>
+
             </select>
         </div>
         <div class="form-group">
-            <label for="Owner_Id">Owner_id</label>
+            <label for="Owner">Owner</label>
 
-            <select th:field="*{owner_Id}">
-                <option th:each="o :${own}" th:value="${o}" th:text="${o}"></option>
+            <select th:field="*{owner}" class="form-control " required>
+                <th:block th:each="own:${owns}">
+                    <option  th:text="${own.firstName }" th:value="${own.getId()}"></option>
+                </th:block>
+
             </select>
         </div>
+
         <div class="form-group">
             <label for="BirthDate">Birthdate</label>
             <input type="number" class="form-control" th:field="*{birthDate}"  placeholder="Enter birthdate">

@@ -13,7 +13,7 @@ public class Animal extends AbstractEntity{
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private Owner owner;
-    private LocalDate birthDate;
+    private Long birthDate;
     private String Name;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "animal")
     private Set<Visit> visits;
@@ -34,11 +34,11 @@ public class Animal extends AbstractEntity{
         this.owner = owner;
     }
 
-    public LocalDate getBirthDate() {
+    public Long getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(Long birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -56,5 +56,16 @@ public class Animal extends AbstractEntity{
 
     public void setVisits(Set<Visit> visits) {
         this.visits = visits;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "animalType=" + animalType +
+                ", owner=" + owner +
+                ", birthDate=" + birthDate +
+                ", Name='" + Name + '\'' +
+                ", visits=" + visits +
+                '}';
     }
 }

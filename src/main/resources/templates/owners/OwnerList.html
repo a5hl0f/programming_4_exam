@@ -23,6 +23,7 @@
         <th th:text="${owner.getId()}"></th>
         <td th:text="${owner.getFirstName()}"></td>
         <td th:text="${owner.getLastName()}"></td>
+
         <td><a th:href="@{'/Owner/edit/'+${owner.getId()}}" class="btn btn-primary" role="button">Edit</a></td>
         <td><a th:href="@{'/Owner/delete/'+${owner.getId()}}" class="btn btn-danger" role="button">Delete</a></td>
 

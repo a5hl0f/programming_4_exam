@@ -7,7 +7,7 @@
 <body>
 
 <div >
-    <form th:action="@{/Doctor/edit}" method="post" th:object="${doctor}">
+    <form th:action="@{/Doctor/edit}" method="put" th:object="${doctor}">
         <div class="form-group">
             <label for="FirstName">FirstName</label>
             <input type="text" class="form-control"  th:field="*{firstName}" placeholder="Enter firstname">

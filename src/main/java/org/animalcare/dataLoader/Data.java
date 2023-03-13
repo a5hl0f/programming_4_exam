@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Component
 public class Data implements CommandLineRunner {
@@ -51,9 +52,10 @@ public class Data implements CommandLineRunner {
         Animal an=new Animal();
         an.setAnimalType(catType);
         an.setOwner(savedOwner);
-        an.setBirthDate(LocalDate.now());
+        an.setBirthDate(1998L);
         an.setName("cherry");
         owner1.getAnimals().add(an);
+
         animalRepository.save(an);
 
 
@@ -63,6 +65,7 @@ public class Data implements CommandLineRunner {
         vis.setAnimal(an);
         vis.setDate(LocalDate.now());
         vis.setDescription("Dog has fever ");
+
         visitRepository.save(vis);
 
 
@@ -89,9 +92,9 @@ public class Data implements CommandLineRunner {
         Animal an1=new Animal();
         an1.setAnimalType(dogType1);
         an1.setOwner(savedOwner2);
-        an1.setBirthDate(LocalDate.now());
+        an1.setBirthDate(2000L);
         an1.setName("Meow");
-        owner1.getAnimals().add(an1);
+       owner2.getAnimals().add(an1);
         animalRepository.save(an1);
         // Visit
         Visit vis1=new Visit();

@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 @RequestMapping("Animal")
 @Controller
@@ -35,10 +36,10 @@ public class AnimalController {
     public String createAnimal(Model model){
         Animal an=new Animal();
         model.addAttribute("animals",an);
-        ArrayList<AnimalType> anitype= (ArrayList<AnimalType>) animalTypeService.findAll();
+        Set<AnimalType> anitype= (Set<AnimalType>) animalTypeService.findAll();
         model.addAttribute("anitype",anitype);
-        ArrayList<Owner> ow= (ArrayList<Owner>) ownerService.findAll();
-        model.addAttribute("own",ow);
+        Set<Owner> ow = (Set<Owner>) ownerService.findAll();
+        model.addAttribute("owns",ow);
         return "animals/CreateAnimal";
 
     }
@@ -58,6 +59,11 @@ public class AnimalController {
     public String EditDoc(@PathVariable("animalId") Long animalId,Model model){
         Animal doc=animalService.findById(animalId);
         model.addAttribute("animal",doc);
+
+        Set<AnimalType> anitype= (Set<AnimalType>) animalTypeService.findAll();
+        model.addAttribute("anitype",anitype);
+        Set<Owner> ow = (Set<Owner>) ownerService.findAll();
+        model.addAttribute("owns",ow);
         return "animals/EditAnimal";
 
     }
