@@ -2,13 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base :: layout(~{::div})">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit animal</title>
 </head>
 <body>
-<div style="width: 50%;margin: auto; ">
+<div >
     <form th:action="@{/Animal/register}" method="post" th:object="${animals}">
         <div class="form-group">
-           <label>Type_id</label>
+            <label>Type_id</label>
             <select th:field="*{type_id}">
                 <option th:each="t :${anitype}" th:value="${t}" th:text="${t}"></option>
             </select>
@@ -33,5 +33,6 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+
 </body>
 </html>

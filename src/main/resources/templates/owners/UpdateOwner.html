@@ -6,7 +6,7 @@
 </head>
 <body>
 <div >
-    <form th:action="@{/Owner/OwnerId/edit}" method="post" th:object="${owner}">
+    <form th:action="@{/Owner/edit}" method="post" th:object="${owner}">
         <div class="form-group">
             <label for="FirstName">FirstName</label>
             <input type="text" class="form-control"  th:field="*{firstName}" placeholder="Enter firstname">

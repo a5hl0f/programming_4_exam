@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base :: layout(~{::div})">
+<head>
+    <meta charset="UTF-8">
+    <title>AnimalType List</title>
+</head>
+<body>
+<div style="width: 70%;margin: auto">
+    <h1 class="">AnimalType List</h1><br>
+    <a th:href="@{AnimalType/register}">Add Doctor</a><br>
+    <br>
+    <table class="table table-striped table-dark" >
+        <thead>
+        <tr>
+            <th >Id</th>
+            <th >Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ani:${anitype}">
+            <th th:text="${ani.getId()}">1</th>
+            <td th:text="${ani.getName()}"></td>
+            <td><a th:href="@{'/AnimalType/edit/'+${ani.getId()}}" class="btn btn-primary" role="button">Edit</a></td>
+            <td><a th:href="@{'/AnimalType/delete/'+${ani.getId()}}" class="btn btn-danger" role="button">Delete</a></td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+
+</body>
+</html>

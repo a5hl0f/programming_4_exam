@@ -38,4 +38,7 @@ public class VisitService {
     public void deleteBYId(Long id){
         visitRepository.deleteById(id);
     }
+    public void Update(Visit object){
+        visitRepository.save(object);
+    }
 }

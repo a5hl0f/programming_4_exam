@@ -7,7 +7,6 @@ import org.animalcare.reposistory.OwnerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -43,7 +42,7 @@ public class OwnerService {
     public void delete(Owner object){
         ownerRepository.delete(object);
     }
-    public void deleteBYId(Long id){
-        ownerRepository.deleteById(id);
+    public void Update(Owner object){
+        ownerRepository.save(object);
     }
 }

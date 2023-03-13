@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base :: layout(~{::div})">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div >
+    <form th:action="@{/Doctor/edit}" method="post" th:object="${doctor}">
+        <div class="form-group">
+            <label for="FirstName">FirstName</label>
+            <input type="text" class="form-control"  th:field="*{firstName}" placeholder="Enter firstname">
+
+        </div>
+        <div class="form-group">
+            <label for="LastName">LastName</label>
+            <input type="text" class="form-control" th:field="*{lastName}" placeholder="enter lastname">
+        </div>
+        <div class="form-group">
+            <label for="Specialist">Specialist</label>
+            <input type="text" class="form-control" th:field="*{speciality}"  placeholder="Enter speclisit">
+
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+
+</body>
+</html>

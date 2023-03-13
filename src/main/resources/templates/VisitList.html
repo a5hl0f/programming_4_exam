@@ -25,7 +25,7 @@
             <td th:text="${visit.getDescription()}"></td>
             <td th:text="${visit.animal.getId()}"></td>
 
-            <td><button type="button" class="btn btn-danger">Delete</button></td>
+            <td><a th:href="@{'/Visit/delete/'+${visit.getId()}}">Delete</a></td>
 
         </tr>
 

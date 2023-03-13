@@ -41,4 +41,7 @@ public class AnimalService {
     public void deleteBYId(Long id){
         animalRepository.deleteById(id);
     }
+    public void Update(Animal object){
+        animalRepository.save(object);
+    }
 }

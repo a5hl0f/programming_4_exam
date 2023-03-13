@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 @RequestMapping("Owner")
 @Controller
@@ -20,36 +19,37 @@ public class OwnerController {
     @RequestMapping({"","/","/Owner","/Owner.html"})
       public String OwnerList(Model model){
         model.addAttribute("owners",ownerService.findAll());
-            return "OwnerList";
+            return "owners/OwnerList";
       }
       @GetMapping("/register")
       public String registerOwner(Model model){
           Owner owner=new Owner();
           model.addAttribute("owner",owner);
-          return "CreateOwner";
+          return "owners/CreateOwner";
       }
       @PostMapping("/register")
-    public String submitonwer(@ModelAttribute("owner") Owner owner){
+    public String submitOwner(@ModelAttribute("owner") Owner owner){
         ownerService.save(owner);
 
-        return "redirect : OwnerList";
+        return "redirect:/Owner/Owner";
       }
-      @GetMapping("/{OwnerId}/edit")
+      @GetMapping("/edit/{OwnerId}")
       public String EditOwner(@PathVariable("OwnerId") Long ownerId,Model model){
         Owner own=ownerService.findById(ownerId);
         model.addAttribute("owner",own);
-        return "UpdateOwner";
+        return "owners/UpdateOwner";
 
       }
-      @PostMapping("/edit/{OwnerId}")
-      public String updateOwner(){
-        return "redirect:OwnerList";
+      @PostMapping("/edit")
+      public String updateOwner(@ModelAttribute("owner") Owner owner){
+        ownerService.Update(owner);
+        return "redirect:/Owner/Owner";
       }
       @RequestMapping("/delete/{OwnerId}")
       public String delete(@PathVariable("OwnerId") Long ownerId){
 
         ownerService.deleteById(ownerId);
-        return "redirect:/";
+        return "redirect:/Owner/Owner";
 
       }
 

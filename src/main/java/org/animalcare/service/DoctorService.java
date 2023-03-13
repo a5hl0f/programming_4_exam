@@ -1,6 +1,8 @@
 package org.animalcare.service;
 
+import jakarta.transaction.Transactional;
 import org.animalcare.entity.Doctor;
+import org.animalcare.entity.Owner;
 import org.animalcare.reposistory.DoctorRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ public class DoctorService {
         return doctorRepository.findById(id).orElse(null);
 
     }
+
     public void save(Doctor doctor){
         doctorRepository.save(doctor);
     }
@@ -35,5 +38,8 @@ public class DoctorService {
     }
     public void deleteBYId(Long id){
         doctorRepository.deleteById(id);
+    }
+    public void Update(Doctor object){
+        doctorRepository.save(object);
     }
 }

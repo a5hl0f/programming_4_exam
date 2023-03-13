@@ -1,5 +1,6 @@
 package org.animalcare.service;
 import org.animalcare.entity.AnimalType;
+import org.animalcare.entity.Owner;
 import org.animalcare.reposistory.AnimalTypeRepository;
 import org.springframework.stereotype.Service;
 
@@ -34,5 +35,8 @@ public class AnimalTypeService {
     }
     public void deleteBYId(Long id){
         animalTypeRepository.deleteById(id);
+    }
+    public void Update(AnimalType object){
+        animalTypeRepository.save(object);
     }
 }

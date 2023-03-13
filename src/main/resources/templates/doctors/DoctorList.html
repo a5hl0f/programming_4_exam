@@ -7,7 +7,7 @@
 <body>
 <div style="width: 70%;margin: auto">
     <h1 class="">Doctor List</h1><br>
-    <button type="button" class="btn btn-primary float-end">Add Doctor</button><br>
+    <a th:href="@{Doctor/register}" class="btn btn-primary">Add Doctor</a><br>
     <br>
     <table class="table table-striped table-dark" >
         <thead>
@@ -26,8 +26,8 @@
             <td th:text="${doctor.getFirstName()}"></td>
             <td th:text="${doctor.getLastName()}"></td>
             <th th:text="${doctor.getSpeciality()}"></th>
-            <td><button type="button" class="btn btn-primary">Edit</button></td>
-            <td><button type="button" class="btn btn-danger">Delete</button></td>
+            <td><a th:href="@{'/Doctor/edit/'+${doctor.getId()}}" class="btn btn-primary">Edit</a></td>
+            <td><a th:href="@{'/Doctor/delete/'+${doctor.getId()}}" class="btn btn-danger">Delete</a></td>
 
         </tr>
 

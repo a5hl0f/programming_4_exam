@@ -2,19 +2,16 @@ package org.animalcare.controller;
 
 import org.animalcare.entity.Animal;
 import org.animalcare.entity.AnimalType;
+import org.animalcare.entity.Doctor;
 import org.animalcare.entity.Owner;
 import org.animalcare.service.AnimalService;
 import org.animalcare.service.AnimalTypeService;
 import org.animalcare.service.OwnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @RequestMapping("Animal")
 @Controller
@@ -32,7 +29,7 @@ public class AnimalController {
     @RequestMapping({"","/","/Animal","/Animal.html"})
     public String OwnerList(Model model){
         model.addAttribute("animals",animalService.findAll());
-        return "AnimalList";
+        return "animals/AnimalList";
     }
     @GetMapping("/register")
     public String createAnimal(Model model){
@@ -48,6 +45,25 @@ public class AnimalController {
     @PostMapping("/register")
     public String saveAnimal(@ModelAttribute("animals") Animal animal){
         animalService.save(animal);
-        return "redirect : AnimalList";
+        return "redirect:/Animal/Animal";
+    }
+    @RequestMapping("/delete/{animalId}")
+    public String delete(@PathVariable("animalId") Long animalId){
+
+        animalService.deleteById(animalId);
+        return "redirect:/Animal/Animal";
+
+    }
+    @GetMapping("/edit/{animalId}")
+    public String EditDoc(@PathVariable("animalId") Long animalId,Model model){
+        Animal doc=animalService.findById(animalId);
+        model.addAttribute("animal",doc);
+        return "animals/EditAnimal";
+
+    }
+    @PostMapping("/edit")
+    public String updateDoc(@ModelAttribute("animal") Animal animal){
+        animalService.Update(animal);
+        return "redirect:/Animal/Animal";
     }
 }

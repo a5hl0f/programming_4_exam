@@ -7,7 +7,7 @@
 <body>
 <div style="width: 70%;margin: auto">
     <h1 class="">Animal List</h1><br>
-    <a th:href="@{/Animal/register}">Add Animal</a><br>
+    <a th:href="@{/Animal/register}" class="btn btn-primary">Add Animal</a><br>
     <br>
     <table class="table table-striped table-dark">
         <thead>
@@ -30,8 +30,8 @@
             <td th:text="${animal.animalType.getId()}"></td>
             <td th:text="${animal.owner.getId()}"></td>
             <td th:text="${animal.getBirthDate()}"></td>
-            <td><a th:href="@{'/Animal/edit/'+${animal.getId()}}">Edit</a></td>
-            <td><a th:href="@{'/Animal/delete'+/${animal.getId()}}">Delete</a></td>
+            <td><a th:href="@{'/Animal/edit/'+${animal.getId()}}" class="btn btn-primary" role="button">Edit</a></td>
+            <td><a th:href="@{'/Animal/delete/'+${animal.getId()}}" class="btn btn-danger" role="button">Delete</a></td>
 
         </tr>
 
