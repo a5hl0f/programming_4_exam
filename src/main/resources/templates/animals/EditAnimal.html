@@ -7,6 +7,12 @@
 <body>
 <div >
     <form th:action="@{/Animal/register}" method="post" th:object="${animal}">
+
+        <div class="form-group">
+
+            <input type="hidden" class="form-control" th:field="*{id}"  >
+
+        </div>
         <div class="form-group">
             <label for="animal">Animal</label>
 
@@ -30,7 +36,7 @@
 
         <div class="form-group">
             <label for="BirthDate">Birthdate</label>
-            <input type="number" class="form-control" th:field="*{birthDate}"  placeholder="Enter birthdate">
+            <input type="number" class="form-control" th:field="*{birthDate}"  placeholder="Enter birthdate" required>
 
         </div>
         <div class="form-group">

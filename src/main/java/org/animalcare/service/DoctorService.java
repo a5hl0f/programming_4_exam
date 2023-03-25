@@ -1,12 +1,11 @@
 package org.animalcare.service;
 
-import jakarta.transaction.Transactional;
 import org.animalcare.entity.Doctor;
-import org.animalcare.entity.Owner;
 import org.animalcare.reposistory.DoctorRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 @Service
 public class DoctorService {
@@ -39,7 +38,5 @@ public class DoctorService {
     public void deleteBYId(Long id){
         doctorRepository.deleteById(id);
     }
-    public void Update(Doctor object){
-        doctorRepository.save(object);
-    }
+
 }

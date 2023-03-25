@@ -45,8 +45,12 @@ public class AnimalController {
     }
     @PostMapping("/register")
     public String saveAnimal(@ModelAttribute("animals") Animal animal){
-        animalService.save(animal);
-        return "redirect:/Animal/Animal";
+        if(animal==null){
+            return "redirect:/Animal/Animal";
+        }else {
+            animalService.save(animal);
+            return "redirect:/Animal/Animal";
+        }
     }
     @RequestMapping("/delete/{animalId}")
     public String delete(@PathVariable("animalId") Long animalId){
@@ -69,7 +73,7 @@ public class AnimalController {
     }
     @PostMapping("/edit")
     public String updateDoc(@ModelAttribute("animal") Animal animal){
-        animalService.Update(animal);
+        animalService.save(animal);
         return "redirect:/Animal/Animal";
     }
 }

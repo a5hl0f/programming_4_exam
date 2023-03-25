@@ -45,7 +45,7 @@ public class DoctorController {
     }
     @RequestMapping(value = "/edit" ,method={RequestMethod.PUT,RequestMethod.GET})
     public String updateDoc(@ModelAttribute("doctor") Doctor doctor){
-        doctorService.Update(doctor);
+        doctorService.save(doctor);
         return "redirect:/Doctor/Doctor";
     }
 }

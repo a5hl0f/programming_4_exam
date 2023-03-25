@@ -47,7 +47,7 @@ public class AnimalTypeController {
     }
     @PostMapping("/edit")
     public String updateAni(@ModelAttribute("anitype") AnimalType animalType){
-        animalTypeService.Update(animalType);
+        animalTypeService.save(animalType);
         return "redirect:/AnimalType/AniType";
     }
 }

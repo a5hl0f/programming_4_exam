@@ -42,7 +42,7 @@ public class OwnerController {
       }
       @PostMapping("/edit")
       public String updateOwner(@ModelAttribute("owner") Owner owner){
-        ownerService.Update(owner);
+        ownerService.save(owner);
         return "redirect:/Owner/Owner";
       }
       @RequestMapping("/delete/{OwnerId}")
