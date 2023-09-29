@@ -1,4 +1,4 @@
-package org.animalcare.entity;
+//package org.animalcare.entity;
 
 import jakarta.persistence.*;
 
