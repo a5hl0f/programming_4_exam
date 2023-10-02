@@ -96,7 +96,7 @@ public class Data implements CommandLineRunner {
         an1.setName("Meow");
        owner2.getAnimals().add(an1);
         animalRepository.save(an1);
-        // Visit
+        // Visit datat
         Visit vis1=new Visit();
         vis1.setAnimal(an1);
         vis1.setDate(LocalDate.now());
