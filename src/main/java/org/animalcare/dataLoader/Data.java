@@ -60,7 +60,7 @@ public class Data implements CommandLineRunner {
 
 
 
-        // Visit
+        // visit data
         Visit vis=new Visit();
         vis.setAnimal(an);
         vis.setDate(LocalDate.now());
