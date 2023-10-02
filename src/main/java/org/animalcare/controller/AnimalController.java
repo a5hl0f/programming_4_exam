@@ -67,6 +67,7 @@ public class AnimalController {
         Set<AnimalType> anitype= (Set<AnimalType>) animalTypeService.findAll();
         model.addAttribute("anitype",anitype);
         Set<Owner> ow = (Set<Owner>) ownerService.findAll();
+        System.out.print("sdhf");
         model.addAttribute("owns",ow);
         return "animals/EditAnimal";
 
