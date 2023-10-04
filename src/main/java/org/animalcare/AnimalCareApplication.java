@@ -9,5 +9,9 @@ public class AnimalCareApplication  extends SpringBootServletInitializer{
     public static void main(String[] args) {
         SpringApplication.run(AnimalCareApplication.class, args);
     }
+      @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(AnimalCareApplication.class);
+    }
 
 }
