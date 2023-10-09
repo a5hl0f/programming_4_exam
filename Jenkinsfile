@@ -1,15 +1,19 @@
+@Library('my-shared-library') _
 pipeline {
     agent any
 
     stages {
         stage('Git checkout') {
             steps {
-                git 'https://github.com/a5hl0f/programming_4_exam'
+               gitCheckout(
+                branch: "master",
+                url: "https://github.com/a5hl0f/programming_4_exam"
+               )
             }
         }
-        stage('Test') {
+        stage('unit Test maven ') {
             steps {
-                echo 'Testing..'
+                sh 'mvn test'
             }
         }
         stage('Deploy') {
