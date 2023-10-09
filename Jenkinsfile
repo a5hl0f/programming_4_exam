@@ -3,14 +3,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Git checkout') {
-            steps {
-               gitCheckout(
-                branch: "master",
-                url: "https://github.com/a5hl0f/programming_4_exam"
-               )
-            }
-        }
+        // stage('Git checkout') {
+        //     steps {
+        //        gitCheckout(
+        //         branch: "master",
+        //         url: "https://github.com/a5hl0f/programming_4_exam"
+        //        )
+        //     }
+        // }
         stage('unit Test maven ') {
             steps {
                 script{
@@ -18,10 +18,20 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
+         stage('Build maven ') {
             steps {
-                echo 'Deploying....'
+                script{
+                    buildmvn()
+                }
             }
         }
+        stage('Docker image build ') {
+            steps {
+                script{
+                    buildDockerImage()
+                }
+            }
+        }
+       
     }
 }
