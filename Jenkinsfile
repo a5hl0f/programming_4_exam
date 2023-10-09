@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Git') {
+        stage('Git checkout') {
             steps {
-                echo 'Building..'
+                git 'https://github.com/a5hl0f/programming_4_exam'
             }
         }
         stage('Test') {
