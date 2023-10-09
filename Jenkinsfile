@@ -5,9 +5,10 @@ pipeline {
     stages {
         stage('Git checkout') {
             steps {
-                script{
-               gitCheckout()
-                }
+               gitCheckout(
+                branch: "master",
+                url: "https://github.com/a5hl0f/programming_4_exam"
+               )
             }
         }
         stage('unit Test maven ') {
