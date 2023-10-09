@@ -5,7 +5,9 @@ pipeline {
     stages {
         stage('Git checkout') {
             steps {
+                script{
                gitCheckout()
+                }
             }
         }
         stage('unit Test maven ') {
