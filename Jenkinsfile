@@ -5,15 +5,14 @@ pipeline {
     stages {
         stage('Git checkout') {
             steps {
-               gitCheckout(
-                branch: "master",
-                url: "https://github.com/a5hl0f/programming_4_exam"
-               )
+               gitCheckout()
             }
         }
         stage('unit Test maven ') {
             steps {
-                sh 'mvn test'
+                script{
+                    mvnTest()
+                }
             }
         }
         stage('Deploy') {
