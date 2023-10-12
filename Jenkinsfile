@@ -1,4 +1,4 @@
-@Library('my-shared-library') _
+
 pipeline {
     agent any
 
@@ -13,22 +13,14 @@ pipeline {
           stage('Build maven') {
             steps {
                 script{
-                    buildmvn()
+                    sh 'mvn clean package'
                 }
             }
         }
         stage('unit Test maven') {
             steps {
                 script{
-                    mvnTest()
-                }
-            }
-        }
-       
-        stage('Docker image build ') {
-            steps {
-                script{
-                    buildDockerImage()
+                   sh 'mvn test'
                 }
             }
         }
