@@ -10,6 +10,13 @@ pipeline {
                }
             }
         }
+          stage('Build maven') {
+            steps {
+                script{
+                    buildmvn()
+                }
+            }
+        }
         stage('unit Test maven') {
             steps {
                 script{
@@ -17,13 +24,7 @@ pipeline {
                 }
             }
         }
-         stage('Build maven') {
-            steps {
-                script{
-                    buildmvn()
-                }
-            }
-        }
+       
         stage('Docker image build ') {
             steps {
                 script{
